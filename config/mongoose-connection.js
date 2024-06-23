@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+const config = require("config");
+// consfig will get URL value from develoepment or production depending on whcih phase we are working on
 mongoose
-  .connect("mongodb://127.0.0.1:27017/scratch")
+  .connect(`${config.get("MONGODB_URI")}scratch`)
   .then(() => {
     console.log("connected to mdb database");
   })
